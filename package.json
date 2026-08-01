@@ -1,0 +1,19 @@
+{
+  "name": "presscentra",
+  "private": true,
+  "workspaces": [
+    "services/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "install": "npm install",
+    "build": "npm run build --workspaces",
+    "dev:web": "npm --workspace apps/web run dev",
+    "dev:api": "npm --workspace apps/api run dev",
+    "lint": "npm run lint --workspaces",
+    "test": "npm test --workspaces"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}
