@@ -6,14 +6,13 @@
     "packages/*"
   ],
   "scripts": {
-    "install": "npm install",
     "build": "npm run build --workspaces",
-    "dev:web": "npm --workspace apps/web run dev",
-    "dev:api": "npm --workspace apps/api run dev",
+    "dev:web": "npm --workspace services/web run dev",
+    "dev:api": "npm --workspace services/api run dev",
     "lint": "npm run lint --workspaces",
     "test": "npm test --workspaces"
   },
   "devDependencies": {
-    "typescript": "^5.5.4"
+    "typescript": "^5.2.1"
   }
 }
