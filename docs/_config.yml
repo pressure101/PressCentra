@@ -1,6 +1,7 @@
+theme: minima
 defaults:
   -
     scope:
       path: "/docs" # an empty string here means all files in the project
     values:
-      layout: "jekyll-rtd-theme"
+      layout: "default"
