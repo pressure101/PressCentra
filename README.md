@@ -3,7 +3,7 @@
 This repository contains a small set of related projects that live alongside each other as sibling workspaces:
 
 - `deal-finder/` — the main Deal Finder application and product code
-- `docs/` — the public-facing docs and marketing website
+- `docs/` — the projects website
 - `resume-tweak/` — the standalone resume optimization tool
 
 ## Repository layout
@@ -28,7 +28,7 @@ This repository contains a small set of related projects that live alongside eac
 - shared TypeScript packages
 - ETL workflow tooling
 
-### Docs
+### Projects Website
 - React + Vite
 - GitHub Pages deployment setup
 
