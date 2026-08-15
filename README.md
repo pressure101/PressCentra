@@ -14,7 +14,6 @@ This repository contains a small set of related projects that live alongside eac
 ├── docs/                 # Website / documentation site
 ├── resume-tweak/         # Resume tuning tool
 ├── .gitignore
-├── AGENTS.md
 ├── README.md
 └── .github/
 ```
