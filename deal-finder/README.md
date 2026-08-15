@@ -19,6 +19,8 @@ This project is the core business application for the PressCentra ecosystem. It 
 
 ```text
 deal-finder/
+├── .agent/
+│   └── AGENTS.md     # AI guidance for the Deal Finder project
 ├── services/
 │   ├── web/          # Frontend application
 │   ├── api/          # Backend API
