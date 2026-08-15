@@ -24,6 +24,7 @@ cd resume-tweak
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+ollama run llama3.1
 streamlit run main.py
 ```
 
