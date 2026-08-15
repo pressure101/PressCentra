@@ -1,32 +1,42 @@
 # Deal Finder
 
-Deal Finder is the main product workspace for the PressCentra ecosystem. It contains the app's frontend, API, admin service, shared types, and ETL pipeline.
+Deal Finder is the main product application in this repository. It contains the product UI, API layer, admin tooling, shared contracts, and the ETL pipeline that powers deal data processing.
 
-## Project purpose
+## Purpose
 
-This project is intended to power the main deal discovery and deal-processing experience. It includes both the user-facing product layer and the operational pieces that support it.
+This project is the core business application for the PressCentra ecosystem. It brings together the frontend experience, backend services, and operational tooling needed to discover and process deal data.
+
+## Stack
+
+- React + Vite
+- TypeScript
+- Express API
+- FastAPI admin service
+- shared TypeScript packages
+- ETL workflow tooling
 
 ## Structure
 
 ```text
 deal-finder/
 ├── services/
-│   ├── web/          # React frontend
-│   ├── api/          # Express API
-│   └── admin/        # FastAPI admin service
+│   ├── web/          # Frontend application
+│   ├── api/          # Backend API
+│   └── admin/        # Admin service
 ├── packages/
-│   └── shared-types/ # Shared TypeScript contracts
+│   └── shared-types/ # Shared contracts
 ├── workflows/
-│   └── etl/          # Data extraction / transformation / load pipeline
+│   └── etl/          # Extraction / transform / load flow
 ├── package.json
 ├── package-lock.json
 ├── tsconfig.base.json
-└── README.md
+├── README.md
+└── .gitignore
 ```
 
 ## Local development
 
-From this folder:
+From this directory:
 
 ```bash
 npm install
@@ -34,7 +44,7 @@ npm run dev:web
 npm run dev:api
 ```
 
-Run the admin service:
+Admin service:
 
 ```bash
 cd services/admin
@@ -42,6 +52,6 @@ uv sync
 uv run admin
 ```
 
-## Notes
+## Relationship to the repo
 
-This app lives at the same level as the `docs/` and `resume-tweak/` projects so the repository is organized as a set of related but independent projects.
+Deal Finder sits alongside the `docs/` website and the `resume-tweak/` tool as a sibling project in the same repository. Each project is independent, but they are tracked together under one repo for convenience.
