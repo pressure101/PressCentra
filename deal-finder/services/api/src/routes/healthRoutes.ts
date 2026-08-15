@@ -2,7 +2,7 @@ import { Router } from 'express'
 
 const router = Router()
 
-router.get('/status', (_req, res) => {
+router.get('/', (_req, res) => {
   res.json({ status: 'ok', service: 'presscentra-api' })
 })
 
