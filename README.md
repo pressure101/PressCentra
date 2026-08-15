@@ -1,67 +1,123 @@
-# PressCentra
+# PressCentra Repository
 
-PressCentra is a monorepo that contains a React frontend, a TypeScript backend, and a Python ETL workflow.
+This repository contains multiple related projects that are all part of the PressCentra ecosystem, but do not all live in the same app structure yet. The repo currently includes:
 
-## Repository structure
+- the main PressCentra application work at the repository root
+- a public-facing website in `docs/`
+- a standalone AI resume optimization app in `resume-tweak/`
+- supporting service packages under `services/` and `packages/`
 
-- `services/`
-  - `web/` — React frontend app
-  - `api/` — TypeScript backend API
-- `packages/`
-  - `shared-types/` — shared TypeScript interfaces and types
-- `workflows/etl/`
-  - `extract/` — data extraction logic
-  - `transform/` — data normalization and cleaning
-  - `load/` — data persistence/loading logic
-  - `tests/` — ETL unit tests
-- `package.json` — root npm workspace configuration
-- `tsconfig.base.json` — shared TypeScript compiler settings
-- `.gitignore`
+The root application is still in its early staging state and may eventually be moved into its own dedicated folder once the product architecture is finalized.
 
-## What is included
+## Repository layout
 
-- React-based frontend written in TypeScript
-- TypeScript backend API powered by Express
-- Python ETL pipeline to fetch, transform, and save dataset output
-- Shared TypeScript types between frontend and backend
+```text
+.
+├── docs/                     # Marketing / documentation website
+├── resume-tweak/             # Standalone Streamlit resume tuning tool
+├── services/                 # Product and admin service projects
+│   ├── web/                  # React frontend app
+│   ├── api/                  # Express API
+│   └── admin/                # FastAPI admin service
+├── packages/
+│   └── shared-types/         # Shared TypeScript interfaces
+├── package.json              # Root workspace configuration
+├── tsconfig.base.json
+├── .gitignore
+├── README.md
+├── AGENTS.md
+└── package-lock.json
+```
 
-## Local development
+## Project overview
 
-Install dependencies from the repo root:
+### 1. PressCentra root application
+This is the main product workspace. It currently contains the web frontend, API backend, and shared app infrastructure in a single repo-level structure.
+
+Tech stack:
+- React + Vite frontend
+- Express + TypeScript API
+- FastAPI admin service
+- shared TypeScript types package
+
+Quick start:
 
 ```bash
 npm install
-```
-
-Run the frontend app:
-
-```bash
 npm run dev:web
-```
-
-Run the backend API:
-
-```bash
 npm run dev:api
 ```
 
-Run the ETL workflow:
+To run the admin service:
 
 ```bash
-python etl/run_etl.py
+cd services/admin
+uv sync
+uv run admin
 ```
 
-## ETL dependencies
+### 2. Docs website
+The `docs/` folder is a separate website project used for public-facing content, project documentation, and marketing material. It is configured as its own Vite application and can be deployed as a static site.
 
-Install Python dependencies with:
+Quick start:
 
 ```bash
-python -m pip install -r etl/requirements.txt
+cd docs
+npm install
+npm run dev
 ```
 
-## Notes
+Build for deployment:
 
-- The frontend uses Vite and React
-- The backend uses Express and TypeScript
-- The ETL workflow uses `requests` and `pandas`
-- `packages/shared-types` is configured for shared TypeScript declarations
+```bash
+cd docs
+npm run build
+```
+
+### 3. Resume Tweak
+The `resume-tweak/` project is a standalone app designed to help tailor a résumé to a target job description using a local Ollama-backed AI workflow.
+
+It is intentionally separate from the main product because it is a focused personal or career-tool utility rather than a core app service.
+
+Quick start:
+
+```bash
+cd resume-tweak
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+streamlit run main.py
+```
+
+Notes:
+- The app expects Ollama to be running locally.
+- Use a model such as `llama3.1` in the local Ollama runtime.
+- This project is designed to keep resume feedback private and local to the machine.
+
+### 4. Service modules
+The application services live under `services/` and are organized by responsibility:
+
+- `services/web/` — frontend application shell
+- `services/api/` — backend API entrypoints
+- `services/admin/` — admin service / internal tooling
+- `packages/shared-types/` — shared contracts used across services
+
+## Recommended repo structure going forward
+The repo is currently a hybrid of a top-level app and separate projects. As the codebase grows, a cleaner long-term layout may be:
+
+```text
+apps/
+  presscentra/
+  docs/
+  resume-tweak/
+```
+
+This would make each project explicit and easier to maintain independently while keeping shared packages and infrastructure in a common root.
+
+## Contributing
+Use the project-specific instructions for each area:
+- root app: work from the repository root
+- docs site: work in `docs/`
+- resume tool: work in `resume-tweak/`
+
+Keep the repo documentation aligned with the current project boundaries as new folders are introduced or moved.
