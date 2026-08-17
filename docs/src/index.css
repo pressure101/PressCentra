@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --max-width:1100px;
+}
+
+html,body,#root{height:100%}
+body{margin:0;font-family:Poppins,Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica Neue,Arial;background:#f6f8fa;color:#111827}
+
+/* Map existing class names to Tailwind utilities */
+.site{@apply relative flex min-h-screen flex-col}
+.site-main{@apply p-6 w-full max-w-[var(--max-width)] mx-auto}
+.site-nav{ @apply flex items-center gap-4 px-6 py-3 border-b border-gray-200 bg-white }
+.brand{ @apply text-inherit no-underline }
+.brand { font-weight: 800 }
+.nav-links{ @apply ml-3 flex gap-3 }
+.nav-link{ @apply text-blue-600 no-underline }
+.page-header h1{ @apply m-0 }
+.page-header p{ @apply text-gray-500 mt-1 }
+.projects{ @apply flex gap-4 flex-wrap mt-4 }
+.project-card{ @apply block w-[320px] p-4 border rounded-md no-underline text-inherit bg-white shadow-sm transition-transform duration-200 transform-gpu will-change-transform }
+.project-card:focus{ @apply outline-none ring-2 ring-brand-200 }
+.project-card:hover{ @apply -translate-y-1 scale-[1.02] shadow-2xl }
+.project-card h3{ @apply m-0 }
+.project-card h3{ font-weight: 700 }
+.project-card p{ @apply m-0 text-gray-800 }
+
+/* Stronger headings */
+h1,h2,h3{ font-weight:700 }
+h1{ letter-spacing: -0.02em }
+.quick-links{ @apply mt-7 }
+.quick-links a{ @apply text-blue-600 }
+.content pre{ @apply bg-white p-3 rounded border }
+
+/* Dark-mode overrides when `html` has the `dark` class */
+html.dark body{ background:#0b1220; color:#e6eef8 }
+html.dark .site-nav{ @apply border-gray-700 bg-gray-900 }
+html.dark .site-nav{ @apply border-gray-700 bg-gray-900 text-gray-100 }
+html.dark .site-nav .brand{ @apply text-gray-100 }
+html.dark .site-nav .nav-links .nav-link{ @apply text-gray-200 }
+html.dark .project-card{ @apply bg-gray-800 text-gray-100 border-gray-700 }
+html.dark .nav-link{ @apply text-brand-200 }
+html.dark .content pre{ @apply bg-gray-900 text-gray-100 border-gray-700 }

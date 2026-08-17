@@ -1,4 +1,4 @@
-# PressCentra Docs
+# PressCentra Website
 
 This folder contains the public-facing website and documentation site for the PressCentra project.
 
@@ -39,4 +39,11 @@ This project is configured with a GitHub Pages deployment flow using the `gh-pag
 ## Relationship to the repo
 
 This site sits alongside the main codebase and the standalone `resume-tweak/` app, making it easy to keep product, docs, and tooling projects separate while still sharing the same repository.
+
+## Showcasing repository projects
+
+The docs site includes a simple Projects showcase on the homepage. It highlights the main projects in this repository (for now: **Deal Finder** and **Resume Tweak**) and links to the project folders.
+
+- If you add new top-level projects, update `docs/src/App.jsx` to include them in the `projects` array.
+- The links point at repository folders; you can replace them with dedicated docs pages as needed.
  
