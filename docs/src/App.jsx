@@ -29,6 +29,7 @@ export default function App() {
     setPath(resolvePath());
   }
 
+
   return (
     <div className="site">
       <div className="absolute inset-0 -z-10">

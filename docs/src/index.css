@@ -12,11 +12,23 @@ body{margin:0;font-family:Poppins,Inter,ui-sans-serif,system-ui,-apple-system,Se
 
 /* Map existing class names to Tailwind utilities */
 .site{@apply relative flex min-h-screen flex-col}
-.site-main{@apply p-6 w-full max-w-[var(--max-width)] mx-auto}
-.site-nav{ @apply flex items-center gap-4 px-6 py-3 border-b border-gray-200 bg-white }
+.site-main{@apply py-6 w-full}
+.site-main{ padding-top: var(--nav-height, 4rem); }
+.site-title h1{ @apply m-0 }
+.site-title p{ @apply mt-1 text-gray-500 }
+.otter-logo{ border-radius: 8px; background: rgba(255,255,255,0.7); padding:6px }
+html.dark .otter-logo{ background: rgba(255,255,255,0.03) }
+.sidebar{ @apply bg-white border-r border-gray-200 }
+.sidebar{ @apply hidden md:block }
+.sidebar h1{ @apply m-0 }
+.sidebar a{ @apply no-underline }
+.sidebar{ @apply sticky top-0 }
+.sidebar{ background: linear-gradient(180deg, rgba(30,155,255,0.06), rgba(255,255,255,0)); }
+.sidebar{ padding-top: 48px }
+.site-nav{ @apply flex items-center gap-4 px-4 py-3 border-b border-gray-200 bg-white }
 .brand{ @apply text-inherit no-underline }
 .brand { font-weight: 800 }
-.nav-links{ @apply ml-3 flex gap-3 }
+.nav-links{ @apply ml-3 gap-3 }
 .nav-link{ @apply text-blue-600 no-underline }
 .page-header h1{ @apply m-0 }
 .page-header p{ @apply text-gray-500 mt-1 }
@@ -43,4 +55,7 @@ html.dark .site-nav .brand{ @apply text-gray-100 }
 html.dark .site-nav .nav-links .nav-link{ @apply text-gray-200 }
 html.dark .project-card{ @apply bg-gray-800 text-gray-100 border-gray-700 }
 html.dark .nav-link{ @apply text-brand-200 }
+html.dark .sidebar{ @apply bg-gray-900 border-gray-800 }
+html.dark .sidebar h1{ @apply text-gray-100 }
+html.dark .sidebar a{ @apply text-gray-200 }
 html.dark .content pre{ @apply bg-gray-900 text-gray-100 border-gray-700 }

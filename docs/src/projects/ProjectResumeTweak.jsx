@@ -3,8 +3,9 @@ import React from 'react';
 export default function ProjectResumeTweak(){
   return (
     <div className="content">
-      <h1 className="text-coral-700">Resume Tweak</h1>
-      <p>Small utility: Python + Streamlit tool for tailoring resumes.</p>
+      <div className="max-w-[var(--max-width)] mx-auto px-4 xl:px-0">
+        <h1 className="text-coral-700">Resume Tweak</h1>
+        <p>Small utility: Python + Streamlit tool for tailoring resumes.</p>
 
       <h2>How to run</h2>
       <pre>
@@ -15,6 +16,7 @@ streamlit run main.py
 
       <h2>Repository</h2>
       <p>The project lives in the <code>resume-tweak/</code> folder at the repository root.</p>
+      </div>
     </div>
   )
 }
