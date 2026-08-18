@@ -22,6 +22,9 @@ export default function Home({ onNavigate }) {
     <>
       <div className="max-w-[var(--max-width)] mx-auto px-4 xl:px-0">
       <section>
+        <div className="projects">A hub of small projects created by Pressure101</div>
+      </section>
+      <section>
         <div className="projects">
           {projects.map((p) => {
             return (
@@ -36,7 +39,11 @@ export default function Home({ onNavigate }) {
                 role="button"
               >
                 <h3 className={`text-lg font-semibold ${p.titleClass}`}>{p.name}</h3>
-                <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">{p.desc}</p>
+                <div className="mt-4 flex items-center" role="separator" aria-orientation="horizontal">
+                    <div className="flex-1 h-0.5 bg-gradient-to-r from-transparent via-brand-300 to-transparent/80 dark:via-brand-200" />
+                        <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">{p.desc}</p>
+                    <div className="flex-1 h-0.5 bg-gradient-to-r from-transparent via-brand-300 to-transparent/80 dark:via-brand-200" />
+                </div>
               </a>
             );
           })}

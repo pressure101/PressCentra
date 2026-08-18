@@ -41,7 +41,6 @@ export default function Nav({ onNavigate }) {
                 <div className="site-title">
                   <a href="/" onClick={(e)=>{e.preventDefault(); if(onNavigate) onNavigate('/');}} className="no-underline text-inherit cursor-pointer">
                     <h1 className="text-2xl sm:text-3xl font-extrabold m-0">PressCentra</h1>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">A hub of small projects.</p>
                   </a>
                 </div>
               </div>
