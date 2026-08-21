@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Nav from './Nav.jsx';
 import Home from './Home.jsx';
 import About from './About.jsx';
+import Hero from './Hero.jsx';
 import ProjectDealFinder from './projects/ProjectDealFinder.jsx';
 import ProjectResumeTweak from './projects/ProjectResumeTweak.jsx';
 import ParticleBg from './components/ParticleBg.jsx';
@@ -30,18 +31,27 @@ export default function App() {
   }
 
 
+  // return (
+  //   <div className="site">
+  //     <div className="absolute inset-0 -z-10">
+  //       <ParticleBg />
+  //     </div>
+  //     <Nav onNavigate={navigate} />
+  //     <Hero />
+  //     <main className="site-main">
+  //       {path === '/' && <Home onNavigate={navigate} />}
+  //       {path === '/about' && <About />}
+  //       {path === '/projects/deal-finder' && <ProjectDealFinder />}
+  //       {path === '/projects/resume-tweak' && <ProjectResumeTweak />}
+  //     </main>
+  //   </div>
+  // );
+
   return (
-    <div className="site">
-      <div className="absolute inset-0 -z-10">
-        <ParticleBg />
-      </div>
-      <Nav onNavigate={navigate} />
-      <main className="site-main">
-        {path === '/' && <Home onNavigate={navigate} />}
-        {path === '/about' && <About />}
-        {path === '/projects/deal-finder' && <ProjectDealFinder />}
-        {path === '/projects/resume-tweak' && <ProjectResumeTweak />}
-      </main>
+    <div className="bg-black min-h-screen text-white select-none selection:bg-emerald-500 selection:text-black">
+      <Nav />
+      <Hero />
     </div>
   );
+
 }
