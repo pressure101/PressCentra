@@ -14,29 +14,29 @@ function Hero() {
           {/* Subtle Live Status Indicator */}
           <div className="inline-flex items-center gap-2 border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-emerald-400 rounded">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-            SYSTEM_STATUS // COMPILING_ONLINE
+            BUILDING
           </div>
 
           {/* Main Massive Brutalist Title */}
           <h1 className="text-4xl sm:text-6xl font-black uppercase tracking-tight leading-none font-mono">
-            BUILD THE FUTURE <br />
-            WITHOUT THE <br />
+            EFFICIENCT, PRODUCT-MINDED, <br />
+            LEADERSHIP. <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-500 drop-shadow-[0_0_15px_rgba(52,211,153,0.3)]">
-              TEMPLATES_
+              PRESSURE101.
             </span>
           </h1>
 
           <p className="text-zinc-400 text-sm sm:text-base max-w-xl font-mono leading-relaxed">
-            Stop forcing your ideas into cookie-cutter structures. Code custom user interfaces natively from scratch with zero bloat, instant rendering speeds, and complete structural freedom.
+            Welcome! Press Centra is the platform to showcase everything Pressure101 from projects written, passions explained in thoughtful blog posts, and ways to follow the journey in creating the biggest impact in software.
           </p>
 
           {/* Dual Action Buttons */}
           <div className="flex flex-wrap gap-4 pt-4 w-full sm:w-auto">
             <button className="w-full sm:w-auto border-2 border-emerald-500 bg-emerald-500 text-black font-black uppercase text-xs tracking-widest font-mono px-8 py-4 transition-all hover:bg-transparent hover:text-emerald-400 active:scale-95 shadow-[0_0_20px_rgba(52,211,153,0.4)]">
-              INITIALIZE_BUILD //
+              VIEW PROJECTS
             </button>
             <button className="w-full sm:w-auto border-2 border-zinc-800 bg-transparent text-zinc-400 hover:text-white hover:border-zinc-500 font-bold uppercase text-xs tracking-widest font-mono px-8 py-4 transition-all">
-              VIEW_SOURCE_CODE
+              CONTACT
             </button>
           </div>
 
