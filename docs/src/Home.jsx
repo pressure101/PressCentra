@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-export default function Home({ onNavigate }) {
+export default function Home() {
   const projects = [
     {
       name: 'Deal Finder',
@@ -28,14 +29,10 @@ export default function Home({ onNavigate }) {
         <div className="projects">
           {projects.map((p) => {
             return (
-              <a
+              <Link
                 key={p.name}
-                href={p.path}
+                to={p.path}
                 className={`project-card ${p.cardClass} focus:outline-none`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (onNavigate) onNavigate(p.path);
-                }}
                 role="button"
               >
                 <h3 className={`text-lg font-semibold ${p.titleClass}`}>{p.name}</h3>
@@ -44,7 +41,7 @@ export default function Home({ onNavigate }) {
                         <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">{p.desc}</p>
                     <div className="flex-1 h-0.5 bg-gradient-to-r from-transparent via-brand-300 to-transparent/80 dark:via-brand-200" />
                 </div>
-              </a>
+              </Link>
             );
           })}
         </div>
@@ -54,37 +51,25 @@ export default function Home({ onNavigate }) {
         <h2>Quick Links</h2>
         <ul>
           <li>
-            <a
-              href="/projects/deal-finder"
-              onClick={(e) => {
-                e.preventDefault();
-                if (onNavigate) onNavigate('/projects/deal-finder');
-              }}
+            <Link
+              to="/projects/deal-finder"
             >
               Deal Finder
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="/projects/resume-tweak"
-              onClick={(e) => {
-                e.preventDefault();
-                if (onNavigate) onNavigate('/projects/resume-tweak');
-              }}
+            <Link
+              to="/projects/resume-tweak"
             >
               Resume Tweak
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="/about"
-              onClick={(e) => {
-                e.preventDefault();
-                if (onNavigate) onNavigate('/about');
-              }}
+            <Link
+              to="/about"
             >
               About
-            </a>
+            </Link>
           </li>
         </ul>
       </section>

@@ -1,57 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Nav from './Nav.jsx';
 import Home from './Home.jsx';
 import About from './About.jsx';
 import Hero from './Hero.jsx';
 import ProjectDealFinder from './projects/ProjectDealFinder.jsx';
 import ProjectResumeTweak from './projects/ProjectResumeTweak.jsx';
-import ParticleBg from './components/ParticleBg.jsx';
-
-function resolvePath() {
-  const p = window.location.pathname || '/';
-  if (p === '/' || p === '') return '/';
-  if (p.startsWith('/about')) return '/about';
-  if (p.startsWith('/projects/deal-finder')) return '/projects/deal-finder';
-  if (p.startsWith('/projects/resume-tweak')) return '/projects/resume-tweak';
-  return '/';
-}
 
 export default function App() {
-  const [path, setPath] = useState(resolvePath());
-
-  useEffect(() => {
-    const onPop = () => setPath(resolvePath());
-    window.addEventListener('popstate', onPop);
-    return () => window.removeEventListener('popstate', onPop);
-  }, []);
-
-  function navigate(href) {
-    history.pushState({}, '', href);
-    setPath(resolvePath());
-  }
-
-
-  // return (
-  //   <div className="site">
-  //     <div className="absolute inset-0 -z-10">
-  //       <ParticleBg />
-  //     </div>
-  //     <Nav onNavigate={navigate} />
-  //     <Hero />
-  //     <main className="site-main">
-  //       {path === '/' && <Home onNavigate={navigate} />}
-  //       {path === '/about' && <About />}
-  //       {path === '/projects/deal-finder' && <ProjectDealFinder />}
-  //       {path === '/projects/resume-tweak' && <ProjectResumeTweak />}
-  //     </main>
-  //   </div>
-  // );
-
   return (
-    <div className="bg-black min-h-screen text-white select-none selection:bg-emerald-500 selection:text-black">
-      <Nav />
-      <Hero />
-    </div>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <div className="bg-black min-h-screen text-white select-none selection:bg-emerald-500 selection:text-black">
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Hero />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/projects/deal-finder" element={<ProjectDealFinder />} />
+          <Route path="/projects/resume-tweak" element={<ProjectResumeTweak />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 
 }
