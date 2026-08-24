@@ -41,26 +41,34 @@ export default function Nav({ onNavigate }) {
       {/* Brand / Logo */}
       <div className="font-black tracking-widest text-xl uppercase font-mono flex items-center gap-3">
         <span className="w-2.5 h-2.5 bg-emerald-400 inline-block animate-pulse shadow-[0_0_10px_#34d399]" />
-        Press<span className="text-emerald-400 font-light text-zinc-500">Centra</span>
+         <a href="/PressCentra/">
+          Press<span className="text-emerald-400 font-light text-zinc-500"> Centra</span>
+         </a>
       </div>
 
       {/* Desktop Links */}
       <ul className="hidden md:flex gap-10 font-bold uppercase tracking-widest text-xs font-mono items-center">
         <li>
-          <a href="#network" className="text-zinc-400 hover:text-emerald-400 transition-colors duration-200 relative group py-2">
+          <a href="/PressCentra/projects" className="text-zinc-400 hover:text-emerald-400 transition-colors duration-200 relative group py-2">
             Projects
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-emerald-400 transition-all duration-300 group-hover:w-full shadow-[0_0_8px_#34d399]" />
           </a>
         </li>
         <li>
-          <a href="#terminal" className="text-zinc-400 hover:text-emerald-400 transition-colors duration-200 relative group py-2">
+          <a href="/PressCentra/about" className="text-zinc-400 hover:text-emerald-400 transition-colors duration-200 relative group py-2">
             About
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-emerald-400 transition-all duration-300 group-hover:w-full shadow-[0_0_8px_#34d399]" />
           </a>
         </li>
         <li>
-          <a href="#vault" className="text-zinc-400 hover:text-emerald-400 transition-colors duration-200 relative group py-2">
+          <a href="/PressCentra/blog" className="text-zinc-400 hover:text-emerald-400 transition-colors duration-200 relative group py-2">
             Blog
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-emerald-400 transition-all duration-300 group-hover:w-full shadow-[0_0_8px_#34d399]" />
+          </a>
+        </li>
+        <li>
+          <a href="/PressCentra/loudmouth" className="text-zinc-400 hover:text-emerald-400 transition-colors duration-200 relative group py-2">
+            Loudmouth
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-emerald-400 transition-all duration-300 group-hover:w-full shadow-[0_0_8px_#34d399]" />
           </a>
         </li>
@@ -87,12 +95,13 @@ export default function Nav({ onNavigate }) {
       {/* Mobile Overlay Menu */}
       <div className={`fixed inset-0 bg-black/95 backdrop-blur-md transition-all duration-300 border-l-2 border-emerald-500 md:hidden flex flex-col items-center justify-center gap-8 ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         <ul className="flex flex-col items-center gap-8 font-bold uppercase tracking-widest text-lg font-mono">
-          <li><a href="#network" onClick={() => setIsOpen(false)} className="text-zinc-400 hover:text-emerald-400 transition-colors">Network</a></li>
-          <li><a href="#terminal" onClick={() => setIsOpen(false)} className="text-zinc-400 hover:text-emerald-400 transition-colors">Terminal</a></li>
-          <li><a href="#vault" onClick={() => setIsOpen(false)} className="text-zinc-400 hover:text-emerald-400 transition-colors">Vault</a></li>
+          <li><a href="/projects" onClick={() => setIsOpen(false)} className="text-zinc-400 hover:text-emerald-400 transition-colors">Projects</a></li>
+          <li><a href="/about" onClick={() => setIsOpen(false)} className="text-zinc-400 hover:text-emerald-400 transition-colors">About</a></li>
+          <li><a href="/blog" onClick={() => setIsOpen(false)} className="text-zinc-400 hover:text-emerald-400 transition-colors">Blog</a></li>
+          <li><a href="/loudmouth" onClick={() => setIsOpen(false)} className="text-zinc-400 hover:text-emerald-400 transition-colors">Loudmouth</a></li>
         </ul>
         <button onClick={() => setIsOpen(false)} className="mt-4 border-2 border-emerald-500 bg-emerald-500/10 text-emerald-400 font-black uppercase text-sm tracking-widest font-mono px-8 py-3 w-64 shadow-[0_0_15px_rgba(52,211,153,0.2)]">
-          Execute //
+          Support
         </button>
       </div>
 
