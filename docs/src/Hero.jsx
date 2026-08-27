@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function Hero() {
   return (
     <section className="bg-black text-white min-h-[90vh] flex items-center px-6 md:px-12 py-12 md:py-20 overflow-hidden relative">
@@ -32,9 +34,9 @@ function Hero() {
 
           {/* Dual Action Buttons */}
           <div className="flex flex-wrap gap-4 pt-4 w-full sm:w-auto">
-            <button className="w-full sm:w-auto border-2 border-emerald-500 bg-emerald-500 text-black font-black uppercase text-xs tracking-widest font-mono px-8 py-4 transition-all hover:bg-transparent hover:text-emerald-400 active:scale-95 shadow-[0_0_20px_rgba(52,211,153,0.4)]">
+            <Link to="/projects" className="w-full sm:w-auto border-2 border-emerald-500 bg-emerald-500 text-black font-black uppercase text-xs tracking-widest font-mono px-8 py-4 text-center transition-all hover:bg-transparent hover:text-emerald-400 active:scale-95 shadow-[0_0_20px_rgba(52,211,153,0.4)]">
               VIEW PROJECTS
-            </button>
+            </Link>
             <button className="w-full sm:w-auto border-2 border-zinc-800 bg-transparent text-zinc-400 hover:text-white hover:border-zinc-500 font-bold uppercase text-xs tracking-widest font-mono px-8 py-4 transition-all">
               SUPPORT
             </button>

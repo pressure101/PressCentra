@@ -45,7 +45,7 @@ export default function Nav() {
       {/* Desktop Links */}
       <ul className="hidden md:flex gap-10 font-bold uppercase tracking-widest text-xs font-mono items-center">
         <li>
-          <Link to="/" className="text-zinc-400 hover:text-emerald-400 transition-colors duration-200 relative group py-2">
+          <Link to="/projects" className="text-zinc-400 hover:text-emerald-400 transition-colors duration-200 relative group py-2">
             Projects
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-emerald-400 transition-all duration-300 group-hover:w-full shadow-[0_0_8px_#34d399]" />
           </Link>
@@ -91,7 +91,7 @@ export default function Nav() {
       {/* Mobile Overlay Menu */}
       <div className={`fixed inset-0 bg-black/95 backdrop-blur-md transition-all duration-300 border-l-2 border-emerald-500 md:hidden flex flex-col items-center justify-center gap-8 ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         <ul className="flex flex-col items-center gap-8 font-bold uppercase tracking-widest text-lg font-mono">
-          <li><Link to="/" onClick={() => setIsOpen(false)} className="text-zinc-400 hover:text-emerald-400 transition-colors">Projects</Link></li>
+          <li><Link to="/projects" onClick={() => setIsOpen(false)} className="text-zinc-400 hover:text-emerald-400 transition-colors">Projects</Link></li>
           <li><Link to="/about" onClick={() => setIsOpen(false)} className="text-zinc-400 hover:text-emerald-400 transition-colors">About</Link></li>
           <li><Link to="/blog" onClick={() => setIsOpen(false)} className="text-zinc-400 hover:text-emerald-400 transition-colors">Blog</Link></li>
           <li><Link to="/loudmouth" onClick={() => setIsOpen(false)} className="text-zinc-400 hover:text-emerald-400 transition-colors">Loudmouth</Link></li>

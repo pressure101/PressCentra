@@ -8,6 +8,7 @@ import Loudmouth from './Loudmouth.jsx';
 import Hero from './Hero.jsx';
 import ProjectDealFinder from './projects/ProjectDealFinder.jsx';
 import ProjectResumeTweak from './projects/ProjectResumeTweak.jsx';
+import Projects from './Projects.jsx';
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Hero />} />
+          <Route path="/projects" element={<Projects />} />
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/loudmouth" element={<Loudmouth />} />
