@@ -2,30 +2,20 @@ import React from 'react';
 
 const posts = [
 	{
-		date: '2026.08.18',
-		title: 'Shipping Before It Feels Ready',
-		summary: 'A practical case for small releases, visible feedback, and momentum over perfection.',
+		date: '2030.08.18',
+		title: 'Coming Soon...',
+		summary: 'Posts coming soon..',
 	},
 	{
-		date: '2026.07.29',
-		title: 'The Product-Minded Engineer',
-		summary: 'What changes when engineering decisions begin with the user outcome instead of the feature list.',
+		date: '2030.08.18',
+		title: 'Coming Soon...',
+		summary: 'Posts coming soon..',
 	},
 	{
-		date: '2026.06.14',
-		title: 'Notes From Building Deal Finder',
-		summary: 'Lessons from connecting a frontend, API, admin surface, and ETL pipeline into one useful system.',
-	},
-	{
-		date: '2026.05.03',
-		title: 'Making Room for Better Questions',
-		summary: 'How deliberate constraints can turn a vague idea into a clearer technical direction.',
-	},
-	{
-		date: '2026.04.21',
-		title: 'A Personal Operating System',
-		summary: 'The habits, tools, and quiet checks that keep a long-term body of work moving forward.',
-	},
+		date: '2030.08.18',
+		title: 'Coming Soon...',
+		summary: 'Posts coming soon..',
+	}
 ];
 
 export default function Blog() {

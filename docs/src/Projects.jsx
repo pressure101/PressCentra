@@ -85,7 +85,7 @@ export default function Projects() {
                 ))}
               </div>
               <div className="mt-10 flex flex-wrap gap-4">
-                <Link to={activeProject.detailPath} className="border-2 border-emerald-400 bg-emerald-400 px-5 py-3 font-mono text-xs font-black uppercase tracking-widest text-black transition hover:bg-transparent hover:text-emerald-400">View case study</Link>
+                {/* <Link to={activeProject.detailPath} className="border-2 border-emerald-400 bg-emerald-400 px-5 py-3 font-mono text-xs font-black uppercase tracking-widest text-black transition hover:bg-transparent hover:text-emerald-400">View case study</Link> */}
                 <a href={activeProject.githubUrl} target="_blank" rel="noreferrer" className="border-2 border-zinc-700 px-5 py-3 font-mono text-xs font-black uppercase tracking-widest text-zinc-300 transition hover:border-white hover:text-white">GitHub ↗</a>
               </div>
             </div>

@@ -9,8 +9,8 @@ export default function About() {
         <div className="lg:col-span-5">
           <div className="border-2 border-emerald-500/50 bg-zinc-950 p-2 shadow-[0_0_30px_rgba(16,185,129,0.15)]">
             <img
-              src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=85"
-              alt="Portrait of Pressure101"
+              src="https://images.unsplash.com/photo-1712395883293-68da514d3aac?auto=format&fit=crop&w=900&q=85"
+              alt="A wet otter sitting on a rock"
               className="aspect-[4/5] w-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
             />
           </div>
