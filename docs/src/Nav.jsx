@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-export default function Nav({ onNavigate }) {
+export default function Nav() {
   const navRef = React.useRef(null);
   const [theme, setTheme] = useState(() => (typeof window !== 'undefined' && localStorage.getItem('theme')) || 'light');
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -28,34 +30,79 @@ export default function Nav({ onNavigate }) {
     function openDrawer() { setDrawerOpen(true); }
     function closeDrawer() { setDrawerOpen(false); }
 
-    function navAndClose(href) {
-      closeDrawer();
-      onNavigate(href);
-    }
-
     return (
       <>
-          <nav ref={navRef} className="site-nav fixed top-0 left-0 right-0 h-16 z-30 shadow-sm bg-gradient-to-r from-brand-50 via-brand-100 to-white dark:from-gray-800 dark:via-gray-900 dark:to-gray-900 dark:border-gray-700">
-            <div className="max-w-[var(--max-width)] mx-auto px-0 h-16 flex items-center w-full">
-              <div className="mr-4">
-                <div className="site-title">
-                  <a href="/" onClick={(e)=>{e.preventDefault(); if(onNavigate) onNavigate('/');}} className="no-underline text-inherit cursor-pointer">
-                    <h1 className="text-2xl sm:text-3xl font-extrabold m-0">PressCentra</h1>
-                  </a>
-                </div>
-              </div>
-            <div className="ml-auto flex items-center gap-3">
-            <button onClick={toggleTheme} aria-label="Toggle theme" className="p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition">
-              {theme === 'dark' ? '🌙' : '☀️'}
-            </button>
-            <button onClick={openDrawer} aria-label="Open menu" className="p-2 rounded">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-            </div>
-          </div>
-        </nav>
+        <nav className="sticky top-0 z-50 bg-black border-b-2 border-emerald-500 px-6 md:px-12 py-4 text-white flex justify-between items-center shadow-[0_4px_30px_rgba(16,185,129,0.15)]">
+      
+      {/* Brand / Logo */}
+      <div className="font-black tracking-widest text-xl uppercase font-mono flex items-center gap-3">
+        <span className="w-2.5 h-2.5 bg-emerald-400 inline-block animate-pulse shadow-[0_0_10px_#34d399]" />
+         <Link to="/">
+          Press<span className="text-emerald-400 font-light text-zinc-500"> Centra</span>
+         </Link>
+      </div>
+
+      {/* Desktop Links */}
+      <ul className="hidden md:flex gap-10 font-bold uppercase tracking-widest text-xs font-mono items-center">
+        <li>
+          <Link to="/projects" className="text-zinc-400 hover:text-emerald-400 transition-colors duration-200 relative group py-2">
+            Projects
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-emerald-400 transition-all duration-300 group-hover:w-full shadow-[0_0_8px_#34d399]" />
+          </Link>
+        </li>
+        <li>
+          <Link to="/about" className="text-zinc-400 hover:text-emerald-400 transition-colors duration-200 relative group py-2">
+            About
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-emerald-400 transition-all duration-300 group-hover:w-full shadow-[0_0_8px_#34d399]" />
+          </Link>
+        </li>
+        <li>
+          <Link to="/blog" className="text-zinc-400 hover:text-emerald-400 transition-colors duration-200 relative group py-2">
+            Blog
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-emerald-400 transition-all duration-300 group-hover:w-full shadow-[0_0_8px_#34d399]" />
+          </Link>
+        </li>
+        <li>
+          <Link to="/loudmouth" className="text-zinc-400 hover:text-emerald-400 transition-colors duration-200 relative group py-2">
+            Loudmouth
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-emerald-400 transition-all duration-300 group-hover:w-full shadow-[0_0_8px_#34d399]" />
+          </Link>
+        </li>
+      </ul>
+
+      {/* CTA Button */}
+      <div className="hidden md:block">
+        <button className="border-2 border-emerald-500 bg-emerald-500/10 hover:bg-emerald-400 hover:text-black font-black uppercase text-xs tracking-widest font-mono px-5 py-2.5 transition-all duration-200 active:scale-95 shadow-[0_0_15px_rgba(52,211,153,0.2)] hover:shadow-[0_0_25px_rgba(52,211,153,0.6)]">
+          Support //
+        </button>
+      </div>
+
+      {/* Mobile Toggle Button */}
+      <button 
+        className="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none z-50"
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label="Toggle Navigation"
+      >
+        <span className={`block w-6 h-0.5 bg-emerald-400 transition-transform duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''} shadow-[0_0_5px_#34d399]`} />
+        <span className={`block w-6 h-0.5 bg-emerald-400 transition-opacity duration-300 ${isOpen ? 'opacity-0' : ''} shadow-[0_0_5px_#34d399]`} />
+        <span className={`block w-6 h-0.5 bg-emerald-400 transition-transform duration-300 ${isOpen ? '-rotate-45 -translate-y-2' : ''} shadow-[0_0_5px_#34d399]`} />
+      </button>
+
+      {/* Mobile Overlay Menu */}
+      <div className={`fixed inset-0 bg-black/95 backdrop-blur-md transition-all duration-300 border-l-2 border-emerald-500 md:hidden flex flex-col items-center justify-center gap-8 ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <ul className="flex flex-col items-center gap-8 font-bold uppercase tracking-widest text-lg font-mono">
+          <li><Link to="/projects" onClick={() => setIsOpen(false)} className="text-zinc-400 hover:text-emerald-400 transition-colors">Projects</Link></li>
+          <li><Link to="/about" onClick={() => setIsOpen(false)} className="text-zinc-400 hover:text-emerald-400 transition-colors">About</Link></li>
+          <li><Link to="/blog" onClick={() => setIsOpen(false)} className="text-zinc-400 hover:text-emerald-400 transition-colors">Blog</Link></li>
+          <li><Link to="/loudmouth" onClick={() => setIsOpen(false)} className="text-zinc-400 hover:text-emerald-400 transition-colors">Loudmouth</Link></li>
+        </ul>
+        <button onClick={() => setIsOpen(false)} className="mt-4 border-2 border-emerald-500 bg-emerald-500/10 text-emerald-400 font-black uppercase text-sm tracking-widest font-mono px-8 py-3 w-64 shadow-[0_0_15px_rgba(52,211,153,0.2)]">
+          Support
+        </button>
+      </div>
+
+    </nav>
+
 
         {/* Mobile drawer */}
         <div className={`fixed inset-0 z-50 ${drawerOpen ? '' : 'pointer-events-none'}`} aria-hidden={!drawerOpen}>
@@ -68,10 +115,10 @@ export default function Nav({ onNavigate }) {
               </button>
             </div>
             <nav className="flex flex-col gap-3">
-              <a href="/" onClick={(e)=>{ e.preventDefault(); navAndClose('/'); }} className="text-blue-600 dark:text-brand-200">Home</a>
-              <a href="/about" onClick={(e)=>{ e.preventDefault(); navAndClose('/about'); }} className="text-blue-600 dark:text-brand-200">About</a>
-              <a href="/projects/deal-finder" onClick={(e)=>{ e.preventDefault(); navAndClose('/projects/deal-finder'); }} className="text-gray-700 dark:text-gray-200">Deal Finder</a>
-              <a href="/projects/resume-tweak" onClick={(e)=>{ e.preventDefault(); navAndClose('/projects/resume-tweak'); }} className="text-gray-700 dark:text-gray-200">Resume Tweak</a>
+              <Link to="/" onClick={closeDrawer} className="text-blue-600 dark:text-brand-200">Home</Link>
+              <Link to="/about" onClick={closeDrawer} className="text-blue-600 dark:text-brand-200">About</Link>
+              <Link to="/projects/deal-finder" onClick={closeDrawer} className="text-gray-700 dark:text-gray-200">Deal Finder</Link>
+              <Link to="/projects/resume-tweak" onClick={closeDrawer} className="text-gray-700 dark:text-gray-200">Resume Tweak</Link>
             </nav>
           </aside>
         </div>
