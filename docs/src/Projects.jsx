@@ -32,6 +32,16 @@ const projects = [
     githubUrl: 'https://github.com/pressure101/loudmouth',
     accent: 'from-cyan-400/25 via-blue-500/10 to-transparent',
   },
+  {
+    number: '04',
+    name: 'RAG Pipeline',
+    type: 'Productivity utility',
+    description: 'Local utility to search and validate queries to pointed documents.',
+    stack: ['Cohere', 'Python', 'Docling', 'LanceDB'],
+    detailPath: '/rag-pipeline',
+    githubUrl: 'https://github.com/pressure101/PressCentra/tree/main/rag-pipeline',
+    accent: 'from-emerald-400/25 via-teal-500/10 to-transparent',
+  }
 ];
 
 export default function Projects() {
