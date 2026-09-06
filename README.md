@@ -1,10 +1,11 @@
 # PressCentra Repository
 
-This repository contains a small set of related projects that live alongside each other as sibling workspaces:
+This is the location of various projects I'm using to get more familiar with various technologies.
 
 - `deal-finder/` — the main Deal Finder application and product code
-- `docs/` — the projects website
+- `docs/` — the project's website
 - `resume-tweak/` — the standalone resume optimization tool
+- `local-rag` - parameterized RAG pipeline to search through targeted directories 
 
 ## Repository layout
 
@@ -13,6 +14,7 @@ This repository contains a small set of related projects that live alongside eac
 ├── deal-finder/          # Main product app
 ├── docs/                 # Website / documentation site
 ├── resume-tweak/         # Resume tuning tool
+├── rag-tutorial/         # Local RAG Pipeline 
 ├── .gitignore
 ├── README.md
 └── .github/
@@ -36,9 +38,8 @@ This repository contains a small set of related projects that live alongside eac
 - Streamlit
 - Ollama
 
-## Project separation
-The repo is organized as sibling projects so each area stays independent while sharing the same repository container.
-
-- `deal-finder/` contains the product application and its internal services
-- `docs/` hosts the public site and supporting documentation
-- `resume-tweak/` is an isolated tool for resume optimization
+### Local RAG Pipeline
+- Python
+- Cohere
+- LanceDB
+- Docling
