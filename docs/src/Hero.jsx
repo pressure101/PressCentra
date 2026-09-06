@@ -22,7 +22,7 @@ function Hero() {
           {/* Main Massive Brutalist Title */}
           <h1 className="text-4xl sm:text-6xl font-black uppercase tracking-tight leading-none font-mono">
             EFFICIENCT, PRODUCT-MINDED, <br />
-            LEADERSHIP. <br />
+            ENGINEER. <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-500 drop-shadow-[0_0_15px_rgba(52,211,153,0.3)]">
               PRESSURE101.
             </span>
