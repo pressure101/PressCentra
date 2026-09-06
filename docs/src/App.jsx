@@ -1,7 +1,5 @@
-import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Nav from './Nav.jsx';
-import Home from './Home.jsx';
 import About from './About.jsx';
 import Blog from './Blog.jsx';
 import Loudmouth from './Loudmouth.jsx';
