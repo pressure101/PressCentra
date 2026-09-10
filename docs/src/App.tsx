@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Nav from './Nav.tsx';
-import About from './About.tsx';
-import Blog from './Blog.tsx';
-import Loudmouth from './Loudmouth.tsx';
-import Hero from './Hero.tsx';
+import Nav from './components/Nav.tsx';
+import About from './pages/About.tsx';
+import Blog from './pages/Blog.tsx';
+import Loudmouth from './pages/Loudmouth.tsx';
+import Hero from './pages/Hero.tsx';
 import ProjectDealFinder from './projects/ProjectDealFinder.jsx';
 import ProjectResumeTweak from './projects/ProjectResumeTweak.jsx';
-import Projects from './Projects.jsx';
+import Projects from './pages/Projects.jsx';
 
 export default function App() {
   return (
