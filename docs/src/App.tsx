@@ -1,16 +1,16 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Nav from './Nav.jsx';
-import About from './About.jsx';
-import Blog from './Blog.jsx';
-import Loudmouth from './Loudmouth.jsx';
-import Hero from './Hero.jsx';
+import Nav from './Nav.tsx';
+import About from './About.tsx';
+import Blog from './Blog.tsx';
+import Loudmouth from './Loudmouth.tsx';
+import Hero from './Hero.tsx';
 import ProjectDealFinder from './projects/ProjectDealFinder.jsx';
 import ProjectResumeTweak from './projects/ProjectResumeTweak.jsx';
 import Projects from './Projects.jsx';
 
 export default function App() {
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
+    <BrowserRouter basename={"/"}>
       <div className="bg-black min-h-screen text-white select-none selection:bg-emerald-500 selection:text-black">
         <Nav />
         <Routes>
