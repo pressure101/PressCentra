@@ -38,7 +38,7 @@ export default function Nav() {
       <div className="font-black tracking-widest text-xl uppercase font-mono flex items-center gap-3">
         <span className="w-2.5 h-2.5 bg-emerald-400 inline-block animate-pulse shadow-[0_0_10px_#34d399]" />
          <Link to="/">
-          Press<span className="text-emerald-400 font-light text-zinc-500"> Centra</span>
+          Press<span className="font-light text-zinc-500"> Centra</span>
          </Link>
       </div>
 
