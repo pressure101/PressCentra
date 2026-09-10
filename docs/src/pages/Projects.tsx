@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
- 
-/** DEPRECATED */
-const projects = [
+import { useEffect, useState } from 'react';
+import { type Project } from '../types/projects.ts';
+
+
+const projects: Project[] = [
   {
     number: '01',
     name: 'Deal Finder',

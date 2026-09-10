@@ -4,7 +4,7 @@ import About from './pages/About.tsx';
 import Blog from './pages/Blog.tsx';
 import Loudmouth from './pages/Loudmouth.tsx';
 import Hero from './pages/Hero.tsx';
-import Projects from './pages/Projects.jsx';
+import Projects from './pages/Projects.tsx';
 
 export default function App() {
   return (
