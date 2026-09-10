@@ -49,12 +49,12 @@ export default function Projects() {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeProject = projects[activeIndex];
 
-  function showProject(index) {
+  function showProject(index: number) {
     setActiveIndex((index + projects.length) % projects.length);
   }
 
   useEffect(() => {
-    function handleKeyDown(event) {
+    function handleKeyDown(event: KeyboardEvent) {
       if (event.key === 'ArrowLeft') showProject(activeIndex - 1);
       if (event.key === 'ArrowRight') showProject(activeIndex + 1);
     }
