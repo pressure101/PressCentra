@@ -4,8 +4,6 @@ import About from './pages/About.tsx';
 import Blog from './pages/Blog.tsx';
 import Loudmouth from './pages/Loudmouth.tsx';
 import Hero from './pages/Hero.tsx';
-import ProjectDealFinder from './projects/ProjectDealFinder.jsx';
-import ProjectResumeTweak from './projects/ProjectResumeTweak.jsx';
 import Projects from './pages/Projects.jsx';
 
 export default function App() {
@@ -19,8 +17,6 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/loudmouth" element={<Loudmouth />} />
-          <Route path="/projects/deal-finder" element={<ProjectDealFinder />} />
-          <Route path="/projects/resume-tweak" element={<ProjectResumeTweak />} />
         </Routes>
       </div>
     </BrowserRouter>
