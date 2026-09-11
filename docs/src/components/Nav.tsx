@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Nav() {
-  const navRef = React.useRef(null);
+  const navRef = React.useRef<HTMLElement>(null);
   const [theme, setTheme] = useState(() => (typeof window !== 'undefined' && localStorage.getItem('theme')) || 'light');
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);

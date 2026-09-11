@@ -36,7 +36,7 @@ export default function About() {
           </div>
 
           <div className="border-l-2 border-emerald-400 pl-4 font-mono text-xs uppercase tracking-widest text-zinc-500">
-            <span className="text-emerald-400">STATUS:</span> BUILDING THE NEXT THING
+            <span className="text-emerald-400">STATUS:</span> WEBSITE BEEFING
           </div>
         </div>
       </div>
