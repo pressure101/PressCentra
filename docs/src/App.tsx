@@ -8,7 +8,7 @@ import Projects from './pages/Projects.tsx';
 
 export default function App() {
   return (
-    <BrowserRouter basename={"/presscentra/"}>
+    <BrowserRouter basename={"/PressCentra/"}>
       <div className="bg-black min-h-screen text-white select-none selection:bg-emerald-500 selection:text-black">
         <Nav />
         <Routes>
