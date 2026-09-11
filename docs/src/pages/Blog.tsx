@@ -1,6 +1,6 @@
-import React from 'react';
+import { type Post } from '../types/blog.ts';
 
-const posts = [
+export const posts: Post[] = [
 	{
 		date: '2030.08.18',
 		title: 'Coming Soon...',
