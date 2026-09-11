@@ -16,6 +16,7 @@
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.18.2",
     "react-tsparticles": "^2.9.4",
+    "sql.js": "^1.14.2",
     "tsparticles": "^2.11.0"
   },
   "devDependencies": {

@@ -1,55 +1,36 @@
 import { useEffect, useState } from 'react';
+import { loadProjects } from '../lib/projectsDb.ts';
 import { type Project } from '../types/projects.ts';
 
-
-const projects: Project[] = [
-  {
-    number: '01',
-    name: 'Deal Finder',
-    type: 'Full-stack product',
-    description: 'A deal discovery platform with a web frontend, API, admin tools, and an ETL pipeline for turning source data into useful offers.',
-    stack: ['React', 'TypeScript', 'Python', 'ETL'],
-    detailPath: '/projects/deal-finder',
-    githubUrl: 'https://github.com/pressure101/PressCentra/tree/main/deal-finder',
-    accent: 'from-emerald-400/25 via-teal-500/10 to-transparent',
-  },
-  {
-    number: '02',
-    name: 'Resume Tweak',
-    type: 'Productivity utility',
-    description: 'A small Streamlit tool that helps tailor resumes to a specific opportunity with a simple, focused workflow.',
-    stack: ['Python', 'Streamlit', 'AI tooling'],
-    detailPath: '/projects/resume-tweak',
-    githubUrl: 'https://github.com/pressure101/PressCentra/tree/main/resume-tweak',
-    accent: 'from-orange-400/25 via-rose-500/10 to-transparent',
-  },
-  {
-    number: '03',
-    name: 'Loudmouth',
-    type: 'Creative project',
-    description: 'A project built to give ideas, opinions, and experiments a louder place to live on the web.',
-    stack: ['React', 'JavaScript', 'Web'],
-    detailPath: '/loudmouth',
-    githubUrl: 'https://github.com/pressure101/loudmouth',
-    accent: 'from-cyan-400/25 via-blue-500/10 to-transparent',
-  },
-  {
-    number: '04',
-    name: 'RAG Pipeline',
-    type: 'Productivity utility',
-    description: 'Local utility to search and validate queries to pointed documents.',
-    stack: ['Cohere', 'Python', 'Docling', 'LanceDB'],
-    detailPath: '/rag-pipeline',
-    githubUrl: 'https://github.com/pressure101/PressCentra/tree/main/rag-pipeline',
-    accent: 'from-emerald-400/25 via-teal-500/10 to-transparent',
-  }
-];
-
 export default function Projects() {
+  const [projects, setProjects] = useState<Project[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
-  const activeProject = projects[activeIndex];
+  const isLoading = projects.length === 0;
+
+  useEffect(() => {
+    let isMounted = true;
+
+    async function fetchProjects() {
+      const data = await loadProjects();
+      if (isMounted) {
+        setProjects(data);
+      }
+    }
+
+    fetchProjects();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const activeProject = projects[activeIndex] ?? null;
 
   function showProject(index: number) {
+    if (isLoading) {
+      return;
+    }
+
     setActiveIndex((index + projects.length) % projects.length);
   }
 
@@ -61,7 +42,30 @@ export default function Projects() {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [activeIndex]);
+  }, [activeIndex, projects.length]);
+
+  if (isLoading) {
+    return (
+      <main className="relative min-h-[calc(100vh-76px)] overflow-hidden bg-zinc-950 px-6 py-16 text-white md:px-12 md:py-24">
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#27272a_1px,transparent_1px),linear-gradient(to_bottom,#27272a_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-25" />
+        <div className="relative mx-auto max-w-6xl">
+          <div className="mb-12 max-w-2xl">
+            <p className="mb-4 font-mono text-xs font-bold uppercase tracking-[0.3em] text-emerald-400">Selected work // 2026</p>
+            <h1 className="font-mono text-4xl font-black uppercase leading-none tracking-tight sm:text-6xl">Projects I built.</h1>
+          </div>
+
+          <section aria-label="Project carousel loading" className="relative overflow-hidden border-2 border-zinc-800 bg-zinc-900/80 p-12 shadow-[12px_12px_0_rgba(16,185,129,0.16)]">
+            <div className="flex min-h-[220px] items-center justify-center">
+              <div className="text-center">
+                <div className="mx-auto h-10 w-10 animate-spin rounded-full border-2 border-zinc-700 border-t-emerald-400" />
+                <p className="mt-6 font-mono text-xs font-bold uppercase tracking-[0.3em] text-zinc-400">Loading projects...</p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="relative min-h-[calc(100vh-76px)] overflow-hidden bg-zinc-950 px-6 py-16 text-white md:px-12 md:py-24">
@@ -106,12 +110,36 @@ export default function Projects() {
         <div className="mt-8 flex items-center justify-between">
           <div className="flex gap-2" aria-label="Choose project">
             {projects.map((project, index) => (
-              <button key={project.name} type="button" aria-label={`Show ${project.name}`} aria-current={index === activeIndex} onClick={() => showProject(index)} className={`h-2 transition-all ${index === activeIndex ? 'w-12 bg-emerald-400' : 'w-6 bg-zinc-700 hover:bg-zinc-500'}`} />
+              <button
+                key={project.name}
+                type="button"
+                disabled={isLoading}
+                aria-label={`Show ${project.name}`}
+                aria-current={index === activeIndex}
+                onClick={() => showProject(index)}
+                className={`h-2 transition-all ${index === activeIndex ? 'w-12 bg-emerald-400' : 'w-6 bg-zinc-700 hover:bg-zinc-500'} ${isLoading ? 'pointer-events-none' : ''}`}
+              />
             ))}
           </div>
           <div className="flex gap-2">
-            <button type="button" onClick={() => showProject(activeIndex - 1)} aria-label="Previous project" className="border border-zinc-700 px-4 py-2 font-mono text-lg text-zinc-300 transition hover:border-emerald-400 hover:text-emerald-400">←</button>
-            <button type="button" onClick={() => showProject(activeIndex + 1)} aria-label="Next project" className="border border-zinc-700 px-4 py-2 font-mono text-lg text-zinc-300 transition hover:border-emerald-400 hover:text-emerald-400">→</button>
+            <button
+              type="button"
+              disabled={isLoading}
+              onClick={() => showProject(activeIndex - 1)}
+              aria-label="Previous project"
+              className={`border px-4 py-2 font-mono text-lg transition ${isLoading ? 'cursor-not-allowed border-zinc-800 text-zinc-700' : 'border-zinc-700 text-zinc-300 hover:border-emerald-400 hover:text-emerald-400'}`}
+            >
+              ←
+            </button>
+            <button
+              type="button"
+              disabled={isLoading}
+              onClick={() => showProject(activeIndex + 1)}
+              aria-label="Next project"
+              className={`border px-4 py-2 font-mono text-lg transition ${isLoading ? 'cursor-not-allowed border-zinc-800 text-zinc-700' : 'border-zinc-700 text-zinc-300 hover:border-emerald-400 hover:text-emerald-400'}`}
+            >
+              →
+            </button>
           </div>
         </div>
       </div>
