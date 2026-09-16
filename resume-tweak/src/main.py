@@ -40,11 +40,11 @@ if st.button("🚀 Optimize My Resume", type="primary", use_container_width=True
         #     "Optimize keywords and action verbs in those sentences, not in a separate section. Point out missing skills. Do not invent fake experience."
         # )
         system_prompt = (
-            "You are an a technical recruiter trying to match candidates with your open position. Give a feedback in the following format:"
-            "1. Resume Match Percentage: [percentage]"
+            "You are an a technical recruiter trying to match candidates with your open position. Do not repeat yourself. Limit repetition and give "
+            "clear consise feedback Give a feedback in the following format:"
+            "1. Resume Match Percentage and explain why the number chosen: [percentage]"
             "2. Missing skills: [list of missing requirements or skills from the JD]"
-            "3. Resume Optimization Suggestions: [list of suggestions to improve the resume to better match the job description]"
-            "4. Examples of how to leverage the candidate's experience to better match the job description: [list of examples]"
+            "3. Write bullets that would increase the match score. Do not repeat the same bullets. Optimize keywords and action verbs. Give max 5 examples: [list of examples]"
         )
         user_prompt = f"Resume:\n{resume_input}\n\nJob Description:\n{job_input}"
         

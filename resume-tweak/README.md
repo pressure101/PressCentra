@@ -21,11 +21,10 @@ This project helps users:
 
 ```bash
 cd resume-tweak
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
+uv init
+uv add -r requirements.txt
 ollama run llama3.1
-streamlit run main.py
+uv run streamlit run src/main.py
 ```
 
 ## Requirements
