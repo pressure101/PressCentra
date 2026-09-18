@@ -19,11 +19,23 @@ This project helps users:
 
 ## Local setup
 
+### Initiate Project
 ```bash
 cd resume-tweak
 uv init
 uv add -r requirements.txt
-ollama run llama3.1
+```
+
+### Tweak and/or Create Local Model
+There is a base Modelfile that can be used to customize your model. You can change the parameters to match your style or use the base file.
+
+```bash
+ollama create resume-tweak-bot -f src/Modelfile
+ollama run resume-tweak-bot
+```
+
+### Running the UI
+```bash
 uv run streamlit run src/main.py
 ```
 
